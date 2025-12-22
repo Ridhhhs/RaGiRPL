@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Kartu Keluarga - RaGi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="frompendaftarankk.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <h2>RaGi (Ranah Digital)</h2>
+      </div>
+      <div class="nav-center">
+        <a href="../index/index.html" class="nav-btn">Beranda</a>
+        <a href="layanan.html" class="nav-btn active">Layanan</a>
+        <a href="../tentang/tentang.html" class="nav-btn">Tentang</a>
+        <a href="../riwayat/riwayat.html" class="nav-btn">Riwayat</a>
+      </div>
+      <div class="navbar-profile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- Tombol Kembali -->
+    <a href="kk.html" class="btn-back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Kembali
+    </a>
+
+    <!-- Form Card -->
+    <div class="form-card">
+
+      <!-- Header -->
+      <div class="form-header">
+        <div class="form-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <line x1="19" x2="19" y1="8" y2="14"></line>
+            <line x1="22" x2="16" y1="11" y2="11"></line>
+          </svg>
+        </div>
+        <h1>Pendaftaran Kartu Keluarga Baru</h1>
+        <p>Silakan isi formulir di bawah ini dengan lengkap dan benar</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps">
+          <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Data Kepala Keluarga</div>
+          </div>
+          <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Data Keluarga</div>
+          </div>
+          <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Dokumen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="formKK">
+
+        <!-- Step 1 -->
+        <div class="form-step active" id="step1">
+          <h2 class="step-title">Data Kepala Keluarga</h2>
+
+          <div class="form-group">
+            <label for="nik">NIK <span class="required">*</span></label>
+            <input type="text" id="nik" name="nik" placeholder="Masukkan NIK (16 digit)" required maxlength="16" pattern="[0-9]{16}">
+          </div>
+
+          <div class="form-group">
+            <label for="namaLengkap">Nama Lengkap <span class="required">*</span></label>
+            <input type="text" id="namaLengkap" name="namaLengkap" placeholder="Masukkan nama lengkap" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tempatLahir">Tempat Lahir <span class="required">*</span></label>
+              <input type="text" id="tempatLahir" name="tempatLahir" placeholder="Kota/Kabupaten" required>
+            </div>
+            <div class="form-group">
+              <label for="tanggalLahir">Tanggal Lahir <span class="required">*</span></label>
+              <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jenisKelamin">Jenis Kelamin <span class="required">*</span></label>
+              <select id="jenisKelamin" name="jenisKelamin" required>
+                <option value="">Pilih</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="agama">Agama <span class="required">*</span></label>
+              <select id="agama" name="agama" required>
+                <option value="">Pilih</option>
+                <option value="Islam">Islam</option>
+                <option value="Kristen">Kristen</option>
+                <option value="Katolik">Katolik</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Buddha">Buddha</option>
+                <option value="Konghucu">Konghucu</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pekerjaan">Pekerjaan <span class="required">*</span></label>
+            <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Contoh: Pegawai Swasta" required>
+          </div>
+
+          <div class="form-group">
+            <label for="alamat">Alamat Lengkap <span class="required">*</span></label>
+            <textarea id="alamat" name="alamat" rows="3" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan" required></textarea>
+          </div>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-next" onclick="nextStep(1)">
+              Selanjutnya
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" id="step2">
+          <h2 class="step-title">Data Anggota Keluarga</h2>
+
+          <div class="info-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" x2="12" y1="16" y2="12"></line>
+              <line x1="12" x2="12.01" y1="8" y2="8"></line>
+            </svg>
+            <span>Masukkan data anggota keluarga yang tinggal satu rumah (selain kepala keluarga)</span>
+          </div>
+
+          <div id="anggotaKeluargaContainer">
+            <div class="anggota-card">
+              <div class="anggota-header">
+                <h3>Anggota Keluarga #1</h3>
+              </div>
+
+              <div class="form-group">
+                <label>NIK</label>
+                <input type="text" class="anggota-nik" placeholder="16 digit" maxlength="16" pattern="[0-9]{16}">
+              </div>
+
+              <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" class="anggota-nama" placeholder="Nama lengkap">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Hubungan</label>
+                  <select class="anggota-hubungan">
+                    <option value="">Pilih</option>
+                    <option value="Istri">Istri</option>
+                    <option value="Suami">Suami</option>
+                    <option value="Anak">Anak</option>
+                    <option value="Orang Tua">Orang Tua</option>
+                    <option value="Mertua">Mertua</option>
+                    <option value="Cucu">Cucu</option>
+                    <option value="Saudara">Saudara</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Lahir</label>
+                  <input type="date" class="anggota-tgl">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-add" onclick="tambahAnggota()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" x2="12" y1="5" y2="19"></line>
+              <line x1="5" x2="19" y1="12" y2="12"></line>
+            </svg>
+            Tambah Anggota Keluarga
+          </button>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev" onclick="prevStep(2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Sebelumnya
+            </button>
+            <button type="button" class="btn-next" onclick="nextStep(2)">
+              Selanjutnya
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" id="step3">
+          <h2 class="step-title">Upload Dokumen Pendukung</h2>
+
+          <div class="upload-container">
+            <div class="upload-box">
+              <label for="ktpFile" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>KTP Kepala Keluarga</h3>
+                <p>Klik untuk upload</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="ktpFile" name="ktpFile" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="ktpFilePreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="akteFile" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Akta Nikah/Cerai</h3>
+                <p>Klik untuk upload</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+              </label>
+              <input type="file" id="akteFile" name="akteFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+              <div class="file-preview" id="akteFilePreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="suratFile" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Surat Keterangan RT/RW</h3>
+                <p>Klik untuk upload</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="suratFile" name="suratFile" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="suratFilePreview"></div>
+            </div>
+          </div>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev" onclick="prevStep(3)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Sebelumnya
+            </button>
+            <button type="submit" class="btn-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Kirim Permohonan
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    let anggotaCount = 1;
+
+    function nextStep(step) {
+      if (validateStep(step)) {
+        document.getElementById('step' + step).classList.remove('active');
+        document.querySelector(`.step[data-step="${step}"]`).classList.remove('active');
+        document.querySelector(`.step[data-step="${step}"]`).classList.add('completed');
+
+        currentStep = step + 1;
+        document.getElementById('step' + currentStep).classList.add('active');
+        document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+
+        updateProgressBar();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function prevStep(step) {
+      document.getElementById('step' + step).classList.remove('active');
+      document.querySelector(`.step[data-step="${step}"]`).classList.remove('active');
+
+      currentStep = step - 1;
+      document.getElementById('step' + currentStep).classList.add('active');
+      document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgressBar() {
+      const progress = ((currentStep - 1) / 2) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    function validateStep(step) {
+      const currentStepElement = document.getElementById('step' + step);
+      const inputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
+      for (let input of inputs) {
+        if (!input.value) {
+          input.focus();
+          alert('Mohon lengkapi semua field yang wajib diisi');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function tambahAnggota() {
+      anggotaCount++;
+      const container = document.getElementById('anggotaKeluargaContainer');
+
+      const newAnggota = `
+        <div class="anggota-card">
+          <div class="anggota-header">
+            <h3>Anggota Keluarga #${anggotaCount}</h3>
+            <button type="button" class="btn-remove" onclick="hapusAnggota(this)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label>NIK</label>
+            <input type="text" class="anggota-nik" placeholder="16 digit" maxlength="16" pattern="[0-9]{16}">
+          </div>
+
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" class="anggota-nama" placeholder="Nama lengkap">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Hubungan</label>
+              <select class="anggota-hubungan">
+                <option value="">Pilih</option>
+                <option value="Istri">Istri</option>
+                <option value="Suami">Suami</option>
+                <option value="Anak">Anak</option>
+                <option value="Orang Tua">Orang Tua</option>
+                <option value="Mertua">Mertua</option>
+                <option value="Cucu">Cucu</option>
+                <option value="Saudara">Saudara</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input type="date" class="anggota-tgl">
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', newAnggota);
+    }
+
+    function hapusAnggota(button) {
+      button.closest('.anggota-card').remove();
+    }
+
+    // Preview file (nama file + tombol hapus)
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+      input.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById(e.target.id + 'Preview');
+        if (!preview) return;
+
+        if (file) {
+          preview.innerHTML = `
+            <div class="file-selected">
+              <span>${file.name}</span>
+              <button type="button" onclick="removeFile('${e.target.id}')" class="btn-remove-file">×</button>
+            </div>
+          `;
+        }
+      });
+    });
+
+    function removeFile(inputId) {
+      document.getElementById(inputId).value = '';
+      const pv = document.getElementById(inputId + 'Preview');
+      if (pv) pv.innerHTML = '';
+    }
+
+    // ✅ SUBMIT REAL KE BACKEND
+    const formKK = document.getElementById("formKK");
+    formKK.addEventListener("submit", handleSubmit);
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      // validasi step 3 (file wajib) juga aman
+      if (!validateStep(currentStep)) return;
+
+      const fd = new FormData(formKK);
+
+      // kumpulkan anggota keluarga
+      const anggota = [];
+      document.querySelectorAll("#anggotaKeluargaContainer .anggota-card").forEach(card => {
+        const nik = card.querySelector(".anggota-nik")?.value?.trim() || "";
+        const nama = card.querySelector(".anggota-nama")?.value?.trim() || "";
+        const hubungan = card.querySelector(".anggota-hubungan")?.value || "";
+        const tgl = card.querySelector(".anggota-tgl")?.value || "";
+
+        // hanya simpan yang ada minimal nik+nama
+        if (nik !== "" && nama !== "") {
+          anggota.push({ nik, nama, hubungan, tanggal_lahir: tgl });
+        }
+      });
+
+      fd.append("anggota", JSON.stringify(anggota));
+
+      try {
+        const res = await fetch("../ragi_api/submit_kk.php", {
+          method: "POST",
+          body: fd,
+          credentials: "include"
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          alert(data.message || "Gagal submit KK");
+          return;
+        }
+
+        alert("Permohonan KK berhasil!\nTracking: " + data.tracking_code);
+
+        // redirect ke riwayat
+        window.location.href = "../riwayat/riwayat.html";
+
+      } catch (err) {
+        console.error(err);
+        alert("Error koneksi ke server");
+      }
+    }
+  </script>
+
+</body>
+</html>

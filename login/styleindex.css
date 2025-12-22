@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Inter', 'Public Sans', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+        linear-gradient(
+            rgba(28, 58, 112, 0.75),
+            rgba(28, 58, 112, 0.75)
+        ),
+        url("bg_unand.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: linear-gradient(90deg, #1c3a70 0%, #2d4a8a 50%, #4a7ad1 100%);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: 70px;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: auto;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-center {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-width: 100px;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: white;
+    color: #1c3a70;
+}
+
+.profile-link,
+.navbar-profile {
+    display: inline-flex;
+    text-decoration: none;
+    order: 3;
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    background: #7ba3db;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover,
+.profile-link:hover {
+    background: #9ab8e5;
+    transform: scale(1.1);
+}
+
+.navbar-profile svg {
+    color: white;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-link:hover .profile-icon {
+    transform: scale(1.1);
+}
+
+/* === LEGACY LOGO SUPPORT (jika masih ada) === */
+.logo {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 80px;
+    z-index: 100;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* ===== Main Container ===== */
+.container {
+    flex: 1;
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    position: relative;
+    z-index: 1;
+    padding: 2rem 1rem;
+}
+
+.left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.left h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.desc {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', 'Public Sans', sans-serif;
+}
+
+.primary {
+    background: white;
+    color: #1c3a70;
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+}
+
+.primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
+}
+
+.primary:active {
+    transform: translateY(-1px);
+}
+
+.secondary {
+    background: transparent;
+    border: 3px solid white;
+    color: white;
+}
+
+.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+}
+
+.secondary:active {
+    transform: translateY(-1px);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 968px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+
+    .nav-center {
+        flex: 1;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-right: 0.5rem;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        min-width: 80px;
+    }
+
+    .container {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .left {
+        max-width: 100%;
+    }
+
+    .left h1 {
+        font-size: 40px;
+    }
+
+    .desc {
+        font-size: 16px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 60px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .profile-icon,
+    .navbar-profile {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar-profile svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-center {
+        gap: 0.25rem;
+    }
+
+    .nav-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .left h1 {
+        font-size: 32px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Akta Kelahiran - RaGi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="frompendaftarankk.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <h2>RaGi (Ranah Digital)</h2>
+      </div>
+      <div class="nav-center">
+        <a href="../index/index.html" class="nav-btn">Beranda</a>
+        <a href="layanan.html" class="nav-btn active">Layanan</a>
+        <a href="../tentang/tentang.html" class="nav-btn">Tentang</a>
+        <a href="../riwayat/riwayat.html" class="nav-btn">Riwayat</a>
+      </div>
+      <div class="navbar-profile" title="Profil">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- Tombol Kembali -->
+    <a href="aktakelahiran.html" class="btn-back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Kembali
+    </a>
+
+    <!-- Form Card -->
+    <div class="form-card">
+
+      <!-- Header -->
+      <div class="form-header">
+        <div class="form-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <h1>Pendaftaran Akta Kelahiran</h1>
+        <p>Silakan isi formulir di bawah ini dengan lengkap dan benar</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-steps">
+          <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Data Anak</div>
+          </div>
+          <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Data Orang Tua</div>
+          </div>
+          <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Dokumen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="formAkta" onsubmit="handleSubmit(event)">
+
+        <!-- Step 1: Data Anak -->
+        <div class="form-step active" id="step1">
+          <h2 class="step-title">Data Anak</h2>
+
+          <div class="form-group">
+            <label for="namaAnak">Nama Lengkap Anak <span class="required">*</span></label>
+            <input type="text" id="namaAnak" placeholder="Masukkan nama lengkap anak" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jenisKelamin">Jenis Kelamin <span class="required">*</span></label>
+              <select id="jenisKelamin" required>
+                <option value="">Pilih</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="anakKe">Anak Ke- <span class="required">*</span></label>
+              <input type="number" id="anakKe" placeholder="1" min="1" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tempatLahir">Tempat Lahir <span class="required">*</span></label>
+            <input type="text" id="tempatLahir" placeholder="Nama Kota/Kabupaten" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tanggalLahir">Tanggal Lahir <span class="required">*</span></label>
+              <input type="date" id="tanggalLahir" required>
+            </div>
+            <div class="form-group">
+              <label for="waktuLahir">Waktu Lahir <span class="required">*</span></label>
+              <input type="time" id="waktuLahir" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="jenisKelahiran">Jenis Kelahiran <span class="required">*</span></label>
+            <select id="jenisKelahiran" required>
+              <option value="">Pilih</option>
+              <option value="Tunggal">Tunggal</option>
+              <option value="Kembar">Kembar Dua</option>
+              <option value="Kembar Tiga">Kembar Tiga</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="penolongKelahiran">Penolong Kelahiran <span class="required">*</span></label>
+            <select id="penolongKelahiran" required>
+              <option value="">Pilih</option>
+              <option value="Dokter">Dokter</option>
+              <option value="Bidan">Bidan</option>
+              <option value="Dukun">Dukun Beranak</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="beratBadan">Berat Badan (gram) <span class="required">*</span></label>
+            <input type="number" id="beratBadan" placeholder="3000" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="panjangBadan">Panjang Badan (cm) <span class="required">*</span></label>
+            <input type="number" id="panjangBadan" placeholder="50" min="0" required>
+          </div>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-next" onclick="nextStep(1)">
+              Selanjutnya
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Data Orang Tua -->
+        <div class="form-step" id="step2">
+          <h2 class="step-title">Data Orang Tua</h2>
+
+          <div class="parent-section">
+            <h3 class="section-subtitle">Data Ayah</h3>
+
+            <div class="form-group">
+              <label for="nikAyah">NIK Ayah <span class="required">*</span></label>
+              <input type="text" id="nikAyah" placeholder="16 digit" maxlength="16" pattern="[0-9]{16}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="namaAyah">Nama Lengkap Ayah <span class="required">*</span></label>
+              <input type="text" id="namaAyah" placeholder="Nama lengkap" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tempatLahirAyah">Tempat Lahir <span class="required">*</span></label>
+                <input type="text" id="tempatLahirAyah" placeholder="Kota/Kabupaten" required>
+              </div>
+              <div class="form-group">
+                <label for="tanggalLahirAyah">Tanggal Lahir <span class="required">*</span></label>
+                <input type="date" id="tanggalLahirAyah" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pekerjaanAyah">Pekerjaan <span class="required">*</span></label>
+              <input type="text" id="pekerjaanAyah" placeholder="Contoh: Pegawai Swasta" required>
+            </div>
+
+            <div class="form-group">
+              <label for="alamatAyah">Alamat <span class="required">*</span></label>
+              <textarea id="alamatAyah" rows="2" placeholder="Alamat lengkap" required></textarea>
+            </div>
+          </div>
+
+          <div class="parent-section">
+            <h3 class="section-subtitle">Data Ibu</h3>
+
+            <div class="form-group">
+              <label for="nikIbu">NIK Ibu <span class="required">*</span></label>
+              <input type="text" id="nikIbu" placeholder="16 digit" maxlength="16" pattern="[0-9]{16}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="namaIbu">Nama Lengkap Ibu <span class="required">*</span></label>
+              <input type="text" id="namaIbu" placeholder="Nama lengkap" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tempatLahirIbu">Tempat Lahir <span class="required">*</span></label>
+                <input type="text" id="tempatLahirIbu" placeholder="Kota/Kabupaten" required>
+              </div>
+              <div class="form-group">
+                <label for="tanggalLahirIbu">Tanggal Lahir <span class="required">*</span></label>
+                <input type="date" id="tanggalLahirIbu" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pekerjaanIbu">Pekerjaan <span class="required">*</span></label>
+              <input type="text" id="pekerjaanIbu" placeholder="Contoh: Ibu Rumah Tangga" required>
+            </div>
+
+            <div class="form-group">
+              <label for="alamatIbu">Alamat <span class="required">*</span></label>
+              <textarea id="alamatIbu" rows="2" placeholder="Alamat lengkap" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev" onclick="prevStep(2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Sebelumnya
+            </button>
+            <button type="button" class="btn-next" onclick="nextStep(2)">
+              Selanjutnya
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Upload Dokumen -->
+        <div class="form-step" id="step3">
+          <h2 class="step-title">Upload Dokumen Pendukung</h2>
+
+          <div class="upload-container">
+
+            <div class="upload-box">
+              <label for="suratLahir" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Surat Keterangan Lahir</h3>
+                <p>Dari Dokter/Bidan/Rumah Sakit</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="suratLahir" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="suratLahirPreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="kkFile" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Kartu Keluarga</h3>
+                <p>Fotocopy KK Orang Tua</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="kkFile" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="kkFilePreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="ktpAyah" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>KTP Ayah</h3>
+                <p>Fotocopy KTP</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="ktpAyah" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="ktpAyahPreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="ktpIbu" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>KTP Ibu</h3>
+                <p>Fotocopy KTP</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="ktpIbu" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="ktpIbuPreview"></div>
+            </div>
+
+            <div class="upload-box">
+              <label for="aktaNikah" class="upload-label">
+                <div class="upload-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" x2="12" y1="3" y2="15"></line>
+                  </svg>
+                </div>
+                <h3>Akta Nikah Orang Tua</h3>
+                <p>Fotocopy Akta Nikah/Buku Nikah</p>
+                <span class="file-info">Format: PDF, JPG, PNG (Max 2MB)</span>
+                <span class="required">* Wajib</span>
+              </label>
+              <input type="file" id="aktaNikah" accept=".pdf,.jpg,.jpeg,.png" required hidden>
+              <div class="file-preview" id="aktaNikahPreview"></div>
+            </div>
+
+          </div>
+
+          <div class="form-navigation">
+            <button type="button" class="btn-prev" onclick="prevStep(3)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Sebelumnya
+            </button>
+            <button type="submit" class="btn-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Kirim Permohonan
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+
+    function nextStep(step) {
+      if (validateStep(step)) {
+        document.getElementById('step' + step).classList.remove('active');
+        document.querySelector(`.step[data-step="${step}"]`).classList.remove('active');
+        document.querySelector(`.step[data-step="${step}"]`).classList.add('completed');
+
+        currentStep = step + 1;
+        document.getElementById('step' + currentStep).classList.add('active');
+        document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+
+        updateProgressBar();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function prevStep(step) {
+      document.getElementById('step' + step).classList.remove('active');
+      document.querySelector(`.step[data-step="${step}"]`).classList.remove('active');
+
+      currentStep = step - 1;
+      document.getElementById('step' + currentStep).classList.add('active');
+      document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+
+      updateProgressBar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgressBar() {
+      const progress = ((currentStep - 1) / 2) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    function validateStep(step) {
+      const currentStepElement = document.getElementById('step' + step);
+      const inputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
+      for (let input of inputs) {
+        if (!input.value) {
+          input.focus();
+          alert('Mohon lengkapi semua field yang wajib diisi');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // ===== File preview + validasi size 2MB =====
+    const MAX_FILE = 2 * 1024 * 1024;
+
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+      input.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        const previewId = e.target.id + 'Preview';
+        const preview = document.getElementById(previewId);
+
+        if (!file) {
+          preview.innerHTML = '';
+          return;
+        }
+
+        if (file.size > MAX_FILE) {
+          alert("File terlalu besar. Maksimal 2MB.");
+          e.target.value = "";
+          preview.innerHTML = "";
+          return;
+        }
+
+        preview.innerHTML = `
+          <div class="file-selected">
+            <span>${file.name}</span>
+            <button type="button" onclick="removeFile('${e.target.id}')" class="btn-remove-file">×</button>
+          </div>
+        `;
+      });
+    });
+
+    function removeFile(inputId) {
+      document.getElementById(inputId).value = '';
+      document.getElementById(inputId + 'Preview').innerHTML = '';
+    }
+
+    // ===== SUBMIT (FINAL): kirim ke PHP backend =====
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (!validateStep(3)) return;
+
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
+      const user_id = user.user_id || user.id || 1;
+
+      const fd = new FormData();
+      fd.append("user_id", user_id);
+
+      fd.append("nama_anak", document.getElementById("namaAnak").value.trim());
+      fd.append("jenis_kelamin", document.getElementById("jenisKelamin").value);
+      fd.append("anak_ke", document.getElementById("anakKe").value);
+      fd.append("tempat_lahir", document.getElementById("tempatLahir").value.trim());
+      fd.append("tanggal_lahir", document.getElementById("tanggalLahir").value);
+      fd.append("waktu_lahir", document.getElementById("waktuLahir").value);
+      fd.append("jenis_kelahiran", document.getElementById("jenisKelahiran").value);
+      fd.append("penolong_kelahiran", document.getElementById("penolongKelahiran").value);
+      fd.append("berat_badan", document.getElementById("beratBadan").value);
+      fd.append("panjang_badan", document.getElementById("panjangBadan").value);
+
+      fd.append("nik_ayah", document.getElementById("nikAyah").value.trim());
+      fd.append("nama_ayah", document.getElementById("namaAyah").value.trim());
+      fd.append("tempat_lahir_ayah", document.getElementById("tempatLahirAyah").value.trim());
+      fd.append("tanggal_lahir_ayah", document.getElementById("tanggalLahirAyah").value);
+      fd.append("pekerjaan_ayah", document.getElementById("pekerjaanAyah").value.trim());
+      fd.append("alamat_ayah", document.getElementById("alamatAyah").value.trim());
+
+      fd.append("nik_ibu", document.getElementById("nikIbu").value.trim());
+      fd.append("nama_ibu", document.getElementById("namaIbu").value.trim());
+      fd.append("tempat_lahir_ibu", document.getElementById("tempatLahirIbu").value.trim());
+      fd.append("tanggal_lahir_ibu", document.getElementById("tanggalLahirIbu").value);
+      fd.append("pekerjaan_ibu", document.getElementById("pekerjaanIbu").value.trim());
+      fd.append("alamat_ibu", document.getElementById("alamatIbu").value.trim());
+
+      const suratLahir = document.getElementById("suratLahir").files[0];
+      const kkFile     = document.getElementById("kkFile").files[0];
+      const ktpAyah    = document.getElementById("ktpAyah").files[0];
+      const ktpIbu     = document.getElementById("ktpIbu").files[0];
+      const aktaNikah  = document.getElementById("aktaNikah").files[0];
+
+      if (!suratLahir || !kkFile || !ktpAyah || !ktpIbu || !aktaNikah) {
+        alert("Mohon upload semua dokumen wajib terlebih dahulu.");
+        return;
+      }
+
+      fd.append("suratLahir", suratLahir);
+      fd.append("kkFile", kkFile);
+      fd.append("ktpAyah", ktpAyah);
+      fd.append("ktpIbu", ktpIbu);
+      fd.append("aktaNikah", aktaNikah);
+
+      try {
+        // ✅ endpoint final sesuai struktur folder kamu
+        const res = await fetch("../ragi_api/submit_akta.php", {
+          method: "POST",
+          body: fd
+        });
+
+        const text = await res.text();
+        let data;
+
+        try {
+          data = JSON.parse(text);
+        } catch (err) {
+          console.log("Response bukan JSON:", text);
+          alert("Server membalas bukan JSON (cek Console F12). Biasanya error PHP/DB.");
+          return;
+        }
+
+        if (!res.ok || !data.ok) {
+          alert(data.message || "Gagal submit permohonan.");
+          return;
+        }
+
+        alert(
+          "Permohonan Akta Kelahiran berhasil diajukan!\n\n" +
+          "ID Permohonan: " + data.application_id + "\n" +
+          "Silakan cek menu Riwayat."
+        );
+
+        window.location.href = "../riwayat/riwayat.html";
+      } catch (err) {
+        console.error(err);
+        alert("Terjadi error koneksi ke server.");
+      }
+    }
+  </script>
+</body>
+</html>

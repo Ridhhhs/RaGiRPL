@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Public Sans', 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: 
+        linear-gradient(
+            rgba(28, 58, 112, 0.75),
+            rgba(28, 58, 112, 0.75)
+        ),
+        url("bg_unand.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.logo {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    z-index: 100;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.left h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.desc {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.primary {
+    background: white;
+    color: #1c3a70;
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+}
+
+.primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
+}
+
+.primary:active {
+    transform: translateY(-1px);
+}
+
+.secondary {
+    background: transparent;
+    border: 3px solid white;
+    color: white;
+}
+
+.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+}
+
+.secondary:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 968px) {
+    .container {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .left {
+        max-width: 100%;
+    }
+
+    .left h1 {
+        font-size: 40px;
+    }
+
+    .desc {
+        font-size: 16px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 60px;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .left h1 {
+        font-size: 32px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

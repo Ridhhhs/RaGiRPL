@@ -1,0 +1,418 @@
+/* === GLOBAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #1c3a70 0%, #4a7ad1 50%, #1c3a70 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background: linear-gradient(90deg, #1c3a70 0%, #2d4a8a 50%, #4a7ad1 100%);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: 70px;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: auto;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-center,
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+}
+
+.nav-btn,
+.nav-links .btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-width: 100px;
+}
+
+.nav-btn:hover,
+.nav-links .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active,
+.nav-links .btn.active {
+    background: white;
+    color: #1c3a70;
+}
+
+.profile-link,
+.profile-icon,
+.logo-icon,
+.navbar-profile {
+    display: inline-flex;
+    text-decoration: none;
+    order: 3;
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    background: #7ba3db;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover {
+    background: #9ab8e5;
+    transform: scale(1.1);
+}
+
+.navbar-profile svg {
+    color: white;
+}
+
+.profile-icon img,
+.logo-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-link:hover .profile-icon img,
+.logo-icon:hover img {
+    transform: scale(1.1);
+}
+
+/* === HERO SECTION === */
+.hero-section {
+    width: 100%;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hero-section:hover img {
+    transform: scale(1.05);
+}
+
+/* === CONTENT LAYOUT === */
+.content {
+    display: flex;
+    gap: 2rem;
+    padding: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left {
+    flex: 1;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.left:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.left p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: justify;
+}
+
+.map-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin-top: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.map-image:hover {
+    transform: scale(1.02);
+}
+
+/* === RIGHT BERITA CARD === */
+.right {
+    width: 400px;
+    flex-shrink: 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    max-height: 650px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.right:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar */
+.right::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.right::-webkit-scrollbar-thumb {
+    background: #4a7ad1;
+    border-radius: 10px;
+}
+
+.right::-webkit-scrollbar-thumb:hover {
+    background: #1c3a70;
+}
+
+.berita-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: #1c3a70;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid #4a7ad1;
+}
+
+.berita-card {
+    background: linear-gradient(135deg, #f8fbff 0%, #e3efff 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #4a7ad1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.berita-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(74, 122, 209, 0.2);
+    border-left-color: #1c3a70;
+}
+
+.berita-card h4 {
+    margin-bottom: 0.5rem;
+    color: #1c3a70;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.berita-card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .content {
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .right {
+        width: 350px;
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .right {
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+
+    .nav-center,
+    .nav-links {
+        flex: 1;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-right: 0.5rem;
+    }
+
+    .nav-btn,
+    .nav-links .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        min-width: 80px;
+    }
+
+    .profile-icon img,
+    .logo-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-section img {
+        height: 250px;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .left {
+        padding: 1.5rem;
+    }
+
+    .left p {
+        font-size: 0.95rem;
+    }
+
+    .right {
+        padding: 1.5rem;
+        max-height: 400px;
+    }
+
+    .berita-title {
+        font-size: 1.25rem;
+    }
+
+    .berita-card h4 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-center,
+    .nav-links {
+        gap: 0.25rem;
+    }
+
+    .nav-btn,
+    .nav-links .btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .hero-section img {
+        height: 200px;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .left {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .left p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .right {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .berita-title {
+        font-size: 1.125rem;
+    }
+
+    .berita-card {
+        padding: 1rem;
+    }
+
+    .berita-card h4 {
+        font-size: 0.95rem;
+    }
+
+    .berita-card p {
+        font-size: 0.85rem;
+    }
+}

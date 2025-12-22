@@ -1,0 +1,315 @@
+/* === GLOBAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* background + overlay biru lembut */
+    background-image:
+        linear-gradient(rgba(30, 60, 120, 0.35), rgba(30, 60, 120, 0.35)),
+        url("aset_gambar/bg_unand.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background: linear-gradient(90deg, #1c3a70 0%, #2d4a8a 50%, #4a7ad1 100%);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: 70px;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: auto;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-center {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-width: 100px;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: white;
+    color: #1c3a70;
+}
+
+.navbar-profile {
+    width: 50px;
+    height: 50px;
+    background: #7ba3db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover {
+    background: #9ab8e5;
+    transform: scale(1.1);
+}
+
+.profile-link,
+.navbar-profile {
+    display: inline-flex;
+    text-decoration: none;
+    order: 3;
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    background: #7ba3db;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover,
+.profile-link:hover {
+    background: #9ab8e5;
+    transform: scale(1.1);
+}
+
+.navbar-profile svg {
+    color: white;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-link:hover .profile-icon {
+    transform: scale(1.1);
+}
+
+/* === CONTENT === */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+/* VISI – MISI container */
+.visi-misi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Box VISI/MISI */
+.box-wrap {
+    text-align: center;
+}
+
+/* Kotak judul VISI/MISI */
+.title-outside {
+    display: inline-block;
+    background: white;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    color: #1c3a70;
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.title-outside:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Kotak paragraf isi */
+.box {
+    width: 100%;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.8;
+    color: #333;
+}
+
+.box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.box p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* === DOTS === */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: #4a7ad1;
+    transform: scale(1.3);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .nav-center {
+        flex: 1;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        min-width: 80px;
+    }
+
+    .profile-icon,
+    .navbar-profile {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar-profile svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .content {
+        padding: 2rem 1rem;
+    }
+
+    .visi-misi {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .box {
+        padding: 1.5rem;
+    }
+
+    .title-outside {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-center {
+        gap: 0.25rem;
+    }
+
+    .nav-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .content {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .box {
+        padding: 1.25rem;
+        border-radius: 8px;
+    }
+
+    .title-outside {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.25rem;
+    }
+}

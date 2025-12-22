@@ -1,0 +1,322 @@
+/* === GLOBAL === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1c3a70 0%, #4a7ad1 50%, #1c3a70 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background: linear-gradient(90deg, #1c3a70 0%, #2d4a8a 50%, #4a7ad1 100%);
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: 70px;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: auto;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-center {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-width: 100px;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: white;
+    color: #1c3a70;
+}
+
+.profile-link,
+.navbar-profile {
+    display: inline-flex;
+    text-decoration: none;
+    order: 3;
+    margin-left: auto;
+    width: 50px;
+    height: 50px;
+    background: #7ba3db;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar-profile:hover,
+.profile-link:hover {
+    background: #9ab8e5;
+    transform: scale(1.1);
+}
+
+.navbar-profile svg {
+    color: white;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-link:hover .profile-icon {
+    transform: scale(1.1);
+}
+
+/* === JUDUL LAYANAN === */
+.judul-layanan {
+    margin: 3rem auto 2.5rem;
+    text-align: center;
+}
+
+.judul-layanan span {
+    display: inline-block;
+    background: white;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1c3a70;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.judul-layanan span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* === GRID LAYANAN === */
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 0 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === KARTU LAYANAN === */
+.layanan-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 350px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.layanan-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1c3a70, #4a7ad1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.layanan-card:hover::before {
+    transform: scaleX(1);
+}
+
+.layanan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* === Judul di dalam kartu === */
+.layanan-title {
+    background: linear-gradient(135deg, #1c3a70, #4a7ad1);
+    padding: 0.875rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    box-shadow: 0 4px 10px rgba(28, 58, 112, 0.2);
+    transition: all 0.3s ease;
+}
+
+.layanan-card:hover .layanan-title {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(28, 58, 112, 0.3);
+}
+
+.layanan-img {
+    width: 180px;
+    height: auto;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.layanan-card:hover .layanan-img {
+    transform: scale(1.1);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 968px) {
+    .layanan-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0 2rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+
+    .nav-center {
+        flex: 1;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-right: 0.5rem;
+    }
+
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        min-width: 80px;
+    }
+
+    .profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .judul-layanan {
+        margin: 2rem auto 2rem;
+    }
+
+    .judul-layanan span {
+        font-size: 1.5rem;
+        padding: 0.875rem 2.5rem;
+    }
+
+    .layanan-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1.5rem 3rem;
+    }
+
+    .layanan-card {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-center {
+        gap: 0.25rem;
+    }
+
+    .nav-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    .judul-layanan span {
+        font-size: 1.25rem;
+        padding: 0.75rem 2rem;
+    }
+
+    .layanan-grid {
+        padding: 0 1rem 2rem;
+    }
+
+    .layanan-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .layanan-title {
+        font-size: 1rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .layanan-img {
+        width: 150px;
+    }
+}

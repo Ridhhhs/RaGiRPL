@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaGi - Beranda</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+
+            <!-- Brand -->
+            <div class="navbar-brand">
+                <h2>RaGi (Ranah Digital)</h2>
+            </div>
+            
+            <!-- Menu Tengah -->
+            <div class="nav-center">
+                <a href="index.html" class="nav-btn active">Beranda</a>
+                <a href="../layanan/layanan.html" class="nav-btn">Layanan</a>
+                <a href="../tentang/tentang.html" class="nav-btn">Tentang</a>
+                <a href="../riwayat/riwayat.html" class="nav-btn">Riwayat</a> 
+            </div>
+            
+            <!-- Profile -->
+            <div class="navbar-profile" id="profileBtn" title="Profil">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="content">
+
+        <!-- SAPAAN USER -->
+        <h3 id="helloUser" style="text-align:center; margin-bottom:20px;">
+            Halo, Pengunjung 👋
+        </h3>
+
+        <!-- VISI MISI -->
+        <div class="visi-misi">
+
+            <!-- VISI -->
+            <div class="box-wrap">
+                <div class="title-outside">VISI</div>
+                <div class="box">
+                    <p>
+                        Menjadi platform digital yang mempertemukan kebutuhan layanan
+                        dan penyedia jasa secara aman, cepat, dan terpercaya di ranah digital.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MISI -->
+            <div class="box-wrap">
+                <div class="title-outside">MISI</div>
+                <div class="box">
+                    <p>
+                        Menyediakan layanan digital yang mudah diakses, meningkatkan
+                        produktivitas pengguna, serta mendukung ekosistem jasa digital
+                        yang profesional dan transparan.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- DOT INDICATOR -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+    <!-- SCRIPT LOGIN STATE -->
+    <script>
+  const user = JSON.parse(localStorage.getItem("ragi_user") || "null");
+  const helloUser = document.getElementById("helloUser");
+  const profileBtn = document.getElementById("profileBtn");
+
+  // Tampilkan nama user jika login
+  if (user && user.username) {
+    helloUser.textContent = `Halo, ${user.username} 👋`;
+  }
+
+  // Klik icon profil → SELALU KE LOGIN / BERANDA
+  profileBtn.addEventListener("click", () => {
+    if (user) {
+      // sudah login → tetap di beranda
+      window.location.href = "index.html";
+    } else {
+      // belum login → ke login
+      window.location.href = "../login/login.html";
+    }
+  });
+</script>
+
+
+</body>
+</html>

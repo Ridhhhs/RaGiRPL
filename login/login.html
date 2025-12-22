@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylelogin.css" />
+  <title>Login - RaGi</title>
+</head>
+<body>
+  <button class="back-btn" onclick="goBack()">← Kembali</button>
+
+  <div class="container">
+    <h1>Login</h1>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" placeholder="Masukkan username" id="username" />
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="Masukkan password" id="password" />
+    </div>
+
+    <button class="btn-login" onclick="handleLogin()">Masuk</button>
+
+    <div class="forgot-password">
+      <a href="#">Lupa password?</a>
+    </div>
+
+    <div class="divider">atau</div>
+
+    <a href="signup.html" class="link-signup">Belum punya akun? Daftar</a>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "../ragi/html/index/index.html";
+    }
+
+    async function handleLogin() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!username || !password) {
+        alert("Mohon isi username dan password!");
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+          credentials: "include" // ✅ PENTING: biar cookie session kebawa
+        });
+
+        // amanin kalau server balikin non-JSON
+        let data = {};
+        try { data = await res.json(); } catch(e) {}
+
+        if (!res.ok || data.success === false) {
+          alert(data.message || "Login gagal");
+          return;
+        }
+
+        // simpan juga ke localStorage (buat tampilan UI)
+        const userToSave = data.user?.username ? data.user : { username };
+        localStorage.setItem("ragi_user", JSON.stringify(userToSave));
+
+        alert("Login berhasil!\n\nSelamat datang, " + userToSave.username + "!");
+        window.location.href = "../ragi/html/index/index.html";
+      } catch (err) {
+        console.error(err);
+        alert("Gagal konek ke server. Pastikan akses via http://localhost/ (bukan file://)");
+      }
+    }
+  </script>
+</body>
+</html>
